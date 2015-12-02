@@ -6,6 +6,9 @@ module.exports = function (opts) {
             return str
                 .toLowerCase()
                 .split(' ')
+                .map(function(el) {
+                    return el.replace(/\W/g, '')
+                })
                 .reduce(function (sum, word) {
                     return sum + (dict[word] || 0);
                 }, 0);
