@@ -29,21 +29,35 @@ tests('a set of some tests', function (t) {
         t.end();
     });
 
-    t.test('with dot.', function (t) {
-        var test4 = lib.classify('Good.');
-        var test5 = lib.classify('Good');
-        t.same(test4, test5, 'dots dont bother us');
+    t.test('extending library', function (t) {
+        var lib2 = require('./index.js')({
+            extraWords: {
+                hyper: 5,
+                hipster: -4
+            }
+        });
+
+        var test4 = lib2.classify('Good hyper');
+        var test5 = lib2.classify('Good');
+        var test6 = lib2.classify('Good hipster');
+
+        t.ok(test4 > test5 > test6, 'with smile');
+        t.end();
+    });
+
+    t.test('performance test', function (t) {
+        //103ms delay for forEach:)
         var arr = new Array(40000)
             .join(',')
             .split(',');
 
         console.time('40000 requests/core in');
-        //103ms delay for forEach:)
-        arr.forEach(function () {
-             lib.classify(longSentence);
-        });
-        console.timeEnd('40000 requests/core in');
 
+        arr.forEach(function () {
+            lib.classify(longSentence);
+        });
+
+        console.timeEnd('40000 requests/core in');
         t.end();
     });
 
