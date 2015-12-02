@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/syzer/sentiment-analyser/issues"
   },
-  "homepage": "https://github.com/syzer/sentiment-analyser#readme"
+  "homepage": "https://github.com/syzer/sentiment-analyser#readme",
+  "devDependencies": {
+    "tapes": "^2.0.0"
+  },
+  "dependencies": {
+    "lodash-fp": "^0.10.2"
+  }
 }
