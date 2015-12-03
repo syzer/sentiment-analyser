@@ -1,22 +1,19 @@
-module.exports = function (opts) {
+module.exports = (opts) => {
     opts = opts || {};
-    opts.extraWords = opts.extraWords || {};
+    opts.words = opts.words || {};
+    opts.tokenize = opts.tokenize || (el => el.replace(/\W/g, ''));
 
     var _ = require('lodash-fp');
-    var dict = _.merge(require('./AFINN-111.json'), opts.extraWords);
+    var dict = _.merge(opts.words, require('./AFINN-111.json'));
 
     return {
-        classify: function (str) {
-            return str
+        classify: (str) => (
+            str
                 .toLowerCase()
                 .split(' ')
                 //TODO move regex higher
-                .map(function(el) {
-                    return el.replace(/\W/g, '')
-                })
-                .reduce(function (sum, word) {
-                    return sum + (dict[word] || 0);
-                }, 0);
-        }
+                .map(opts.tokenize)
+                .reduce((sum, word) => sum + (dict[word] || 0), 0)
+        )
     }
 };
