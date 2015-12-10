@@ -12,3 +12,4 @@ Simple text sentiment analyser.
 [ ] normalize
 [ ] no.: ex: 'don't awesome'
 [ ] stemmer better (test with utf-8)
+[ ] how we got the data, and licence.. give credits
