@@ -114,7 +114,7 @@ tests('a set of some tests', (t) => {
         });
         var test = ml.classify('Beekeeping is awesome :)');
         var test2 = ml.classify('awesome');
-        t.same(test, test2+5, 'beekeeping is very awesome');
+        t.same(test, test2 + 5, 'beekeeping is very awesome');
         t.end();
     });
 
