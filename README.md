@@ -1,8 +1,17 @@
-# WAT
+# Wat
 
 Simple text sentiment analyser.
 
-# HOW
+
+# Install
+
+```js
+npm install ml-sentiment
+var ml = require('ml-sentiment')
+```
+
+
+# How
 
 Returns a positive number for positive sentiment association
 and negative number for negative sentiment association.
@@ -22,12 +31,11 @@ ml.classify('Rainy day but still in a good mood')
 //=> 2 ... (overall positive sentiment)
 ```
 
-# INSTALL
 
-```js
-npm install ml-sentiment
-var ml = require('ml-sentiment')
-```
+# Credits
+
+Finn Årup Nielsen, "A new ANEW: Evaluation of a word list for
+sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
 
 
 # TODO
