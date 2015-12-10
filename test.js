@@ -7,7 +7,6 @@ maintains backwards compatibility to earlier Node.js versions. Listen for
 header and line events or pipe the data directly to a readable stream.`;
 
 tests('a set of some tests', (t) => {
-
     t.test('on Good', (t) => {
         var test = lib.classify('Good');
         t.same(test, 3, 'is true');
@@ -86,6 +85,22 @@ tests('a set of some tests', (t) => {
         });
 
         console.timeEnd('40000 requests/core in');
+        t.end();
+    });
+
+    t.test('negation of positive words', (t) => {
+        var ml = require('./index.js')();
+        var test = ml.classify(`not great`);
+        var test2 = ml.classify(`great`);
+        t.ok(test === -test2, 'negate next word');
+        t.end();
+    });
+
+    t.test('negation of negative words', (t) => {
+        var ml = require('./index.js')();
+        var test = ml.classify(`not awesome`);
+        var test2 = ml.classify(`awesome`);
+        t.ok(test === -test2, 'negate next word');
         t.end();
     });
 
