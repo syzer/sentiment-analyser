@@ -44,3 +44,5 @@ sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
 [ ] no.: ex: 'don't awesome'
 [ ] steamer better (test with utf-8)
 [ ] how we got the data, and licence.. give credits
+[ ] dist for node 0.12
+[ ] integrate TravisCI
