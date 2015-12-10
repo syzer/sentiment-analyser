@@ -104,5 +104,19 @@ tests('a set of some tests', (t) => {
         t.end();
     });
 
+    // well done you have read all the tests! :)
+    t.test('extending witch custom words', (t) => {
+        var ml = require('./index.js')({
+            words: {
+                beekeeping: 5,
+                //':)': 5 //smiles do not work yet!
+            }
+        });
+        var test = ml.classify('Beekeeping is awesome :)');
+        var test2 = ml.classify('awesome');
+        t.same(test, test2+5, 'beekeeping is very awesome');
+        t.end();
+    });
+
     t.end();
 });

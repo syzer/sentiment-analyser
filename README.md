@@ -57,5 +57,6 @@ sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
 [X] how we got the data, and licence.. give credits
 [ ] normalize
 [ ] steamer better (test with utf-8)
+[ ] steamer with smieleys!
 [ ] dist for node 0.12
 [ ] integrate TravisCI
