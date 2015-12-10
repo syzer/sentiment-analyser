@@ -5,7 +5,7 @@ module.exports = (opts) => {
 
     var _ = require('lodash-fp');
     var dict = _.merge(opts.words, require('./AFINN-111.json'));
-    var negate = new RegExp(/^(not|don't|no|nope)$/);
+    var negate = new RegExp(/^(not|don't|dont|no|nope)$/);
 
     return {
         classify: (str) => (
