@@ -39,8 +39,8 @@ sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
 
 
 # TODO
-[ ] describe this stuff
+[X] describe this stuff
 [ ] normalize
 [ ] no.: ex: 'don't awesome'
-[ ] stemmer better (test with utf-8)
+[ ] steamer better (test with utf-8)
 [ ] how we got the data, and licence.. give credits
