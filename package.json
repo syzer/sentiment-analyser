@@ -1,7 +1,7 @@
 {
   "name": "ml-sentiment",
-  "version": "1.1.4",
-  "description": "",
+  "version": "1.1.5",
+  "description": "AFINN ml learner sentiment classifier, with ability to negate words",
   "main": "index.js",
   "scripts": {
     "test": "node test"
