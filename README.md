@@ -49,11 +49,3 @@ ml.classify(`awesome`);
 Original model and data:
 Finn Årup Nielsen, "A new ANEW: Evaluation of a word list for
 sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
-
-
-# TODO
-
-[ ] normalize
-[ ] steamer better (test with utf-8)
-[ ] steamer with smieleys!
-[ ] integrate TravisCI
