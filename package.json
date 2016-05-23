@@ -20,6 +20,6 @@
     "tapes": "^3.1.0"
   },
   "dependencies": {
-    "lodash-fp": "^0.10.2"
+    "lodash-fp": "^0.10.4"
   }
 }
