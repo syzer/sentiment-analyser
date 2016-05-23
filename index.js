@@ -14,7 +14,7 @@ module.exports = (opts) => {
                 //TODO move tokenize higher
                 .map(opts.tokenize)
                 .reduce((acc, word) => {
-                    let score = negate.test(acc.prev) ? -dict[word] : dict[word];
+                    var score = negate.test(acc.prev) ? -dict[word] : dict[word];
                     return {
                         sum: acc.sum + (score || 0),
                         prev: word

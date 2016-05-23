@@ -75,17 +75,10 @@ tests('a set of some tests', (t) => {
         t.end()
     })
 
-    //extra 103ms delay for forEach:)
     t.test('performance test', (t) => {
-        let arr = new Array(40000)
-            .join(',')
-            .split(',')
-
         console.time('40000 requests/core in')
 
-        arr.forEach(() => {
-            lib.classify(longSentence)
-        })
+        _.times(() => lib.classify(longSentence), 40000)
 
         console.timeEnd('40000 requests/core in')
         t.end()
