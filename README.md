@@ -52,11 +52,8 @@ sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
 
 
 # TODO
-[X] describe this stuff
-[X] negation of words: 'don't awesome'
-[X] how we got the data, and licence.. give credits
+
 [ ] normalize
 [ ] steamer better (test with utf-8)
 [ ] steamer with smieleys!
-[ ] dist for node 0.12
 [ ] integrate TravisCI
