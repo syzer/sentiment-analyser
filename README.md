@@ -49,3 +49,7 @@ ml.classify(`awesome`);
 Original model and data:
 Finn Årup Nielsen, "A new ANEW: Evaluation of a word list for
 sentiment analysis in microblogs", http://arxiv.org/abs/1103.2903
+
+For german model:
+R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-language Resource for Sentiment Analysis.
+In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), 2010
