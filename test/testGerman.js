@@ -3,17 +3,17 @@
 const tap = require('tap').test
 const main = require('./../src/index.js')
 // js is horrible
-const lib = main({lang: 'en'})
+const lib = main({lang: 'de'})
 const _ = require('lodash-fp')
-const longSentence = `Transform json to csv data. The difference to my other
-module json2csv is json2csv-stream uses streams for transforming the incoming
-data. The module is built with the new streaming API from Node.js v0.10.0 but
-maintains backwards compatibility to earlier Node.js versions. Listen for
-header and line events or pipe the data directly to a readable stream.`
+const longSentence = `Trans json zu CSV-Daten. Der Unterschied zu meinen anderen
+Modul json2csv ist json2csv-Stream verwendet Ströme für die Umwandlung der eingehenden
+Daten. Das Modul mit der neue Streaming API von Node.js v0.10.0 gebaut ist, aber
+unterhält die Abwärtskompatibilität zu früheren Versionen Node.js. Hören Sie
+Ereignisse oder Rohr Kopf- und die Daten direkt in einen lesbaren Stream.`
 
 tap('a set of english tests', (t) => {
     t.test('on Good', (t) => {
-        let test = lib.classify('Good')
+        let test = lib.classify('de', 'Good')
         t.same(test, 3, 'is true')
         t.end()
     })
