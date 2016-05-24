@@ -11,7 +11,6 @@ module.exports = (opts) => {
         classify: (str) => (
             str.toLowerCase()
                 .split(' ')
-                //TODO move tokenize higher
                 .map(opts.tokenize)
                 .reduce((acc, word) => {
                     var score = negate.test(acc.prev) ? -dict[word] : dict[word];
