@@ -1,10 +1,10 @@
 {
   "name": "ml-sentiment",
-  "version": "1.1.5",
-  "description": "AFINN ml learner sentiment classifier, with ability to negate words",
+  "version": "2.0.0",
+  "description": "Machine learner sentiment classifier, with ability to negate words, with english and german",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/syzer/sentiment-analyser#readme",
   "devDependencies": {
-    "tapes": "^3.1.0"
+    "tap": "^5.7.2"
   },
   "dependencies": {
     "lodash-fp": "^0.10.4"

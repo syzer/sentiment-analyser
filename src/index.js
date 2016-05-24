@@ -4,7 +4,7 @@ module.exports = (opts) => {
     opts.tokenize = opts.tokenize || (el => el.replace(/\W/g, ''))
 
     var _ = require('lodash-fp')
-    var dict = _.merge(opts.words, require('./AFINN-111.json'))
+    var dict = _.merge(opts.words, require('./../AFINN-111.json'))
     var negate = new RegExp(/^(not|don't|dont|no|nope)$/)
 
     return {
