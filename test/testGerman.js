@@ -11,18 +11,18 @@ Daten. Das Modul mit der neue Streaming API von Node.js v0.10.0 gebaut ist, aber
 unterhält die Abwärtskompatibilität zu früheren Versionen Node.js. Hören Sie
 Ereignisse oder Rohr Kopf- und die Daten direkt in einen lesbaren Stream.`
 
-tap('a set of english tests', (t) => {
+tap('a set of german tests', (t) => {
     t.test('on Good', (t) => {
-        let test = lib.classify('de', 'Good')
-        t.same(test, 3, 'is true')
+        let test = lib.classify('Gut')
+        t.same(test, 3, 'good is good :)')
         t.end()
     })
 
-    t.test('long string', (t) => {
-        let test2 = lib.classify('Rainy day but still in a good mood')
-        t.same(test2, 2, 'is true')
-        t.end()
-    })
+    // t.test('long string', (t) => {
+    //     let test2 = lib.classify('Regnerischen Tag , aber immer noch in einer guten Stimmung')
+    //     t.same(test2, 2, 'is true')
+    //     t.end()
+    // })
 
     t.test('long string', (t) => {
         let test3 = lib.classify(longSentence)
@@ -31,8 +31,8 @@ tap('a set of english tests', (t) => {
     })
 
     t.test('with dot.', (t) => {
-        let test4 = lib.classify('Good.')
-        let test5 = lib.classify('Good')
+        let test4 = lib.classify('Gut.')
+        let test5 = lib.classify('Gut')
         t.same(test4, test5, 'dots dont bother us')
         t.end()
     })
@@ -45,9 +45,9 @@ tap('a set of english tests', (t) => {
             }
         })
 
-        let test4 = lib2.classify('Good hyper')
-        let test5 = lib2.classify('Good')
-        let test6 = lib2.classify('Good hipster')
+        let test4 = lib2.classify('Gut hyper')
+        let test5 = lib2.classify('Gut')
+        let test6 = lib2.classify('Gut hipster')
 
         t.ok(test4 > test5 > test6, 'with custom words')
         t.end()
@@ -56,65 +56,64 @@ tap('a set of english tests', (t) => {
     t.test('overwrite points', (t) => {
         let lib3 = main({
             words: {
-                good: 5
+                gut: 5
             }
         })
-        let test5 = lib3.classify('good')
+        let test5 = lib3.classify('Gut')
 
         t.same(test5, 5, 'with good=5')
         t.end()
     })
 
-    //TODO better test
-    t.test('custom tokenizer', (t) => {
-        let lib4 = main({
-            tokenize: el => (el => el.replace(/\W /g, ''))
-        })
-        let test = lib4.classify(`It's not great`)
-        let test2 = lib4.classify('not great')
+    // t.test('custom tokenizer', (t) => {
+    //     let lib4 = main({
+    //         tokenize: el => (el => el.replace(/\W /g, ''))
+    //     })
+    //     let test = lib4.classify(`It's not great`)
+    //     let test2 = lib4.classify('not great')
+    //
+    //     t.same(test, test2, 'with custom tokenizer')
+    //     t.end()
+    // })
+    //
+    // t.test('performance test', (t) => {
+    //     console.time('40000 requests/core in')
+    //
+    //     _.times(() => lib.classify(longSentence), 40000)
+    //
+    //     console.timeEnd('40000 requests/core in')
+    //     t.end()
+    // })
+    //
+    // t.test('negation of positive words', (t) => {
+    //     let ml = main()
+    //     let test = ml.classify(`not great`)
+    //     let test2 = ml.classify(`great`)
+    //     t.ok(test === -test2, 'negate next word')
+    //     t.end()
+    // })
 
-        t.same(test, test2, 'with custom tokenizer')
-        t.end()
-    })
-
-    t.test('performance test', (t) => {
-        console.time('40000 requests/core in')
-
-        _.times(() => lib.classify(longSentence), 40000)
-
-        console.timeEnd('40000 requests/core in')
-        t.end()
-    })
-
-    t.test('negation of positive words', (t) => {
-        let ml = main()
-        let test = ml.classify(`not great`)
-        let test2 = ml.classify(`great`)
-        t.ok(test === -test2, 'negate next word')
-        t.end()
-    })
-
-    t.test('negation of negative words', (t) => {
-        let ml = main()
-        let test = ml.classify(`not awesome`)
-        let test2 = ml.classify(`awesome`)
-        t.ok(test === -test2, 'negate next word')
-        t.end()
-    })
+    // t.test('negation of negative words', (t) => {
+    //     let ml = main()
+    //     let test = ml.classify(`not awesome`)
+    //     let test2 = ml.classify(`awesome`)
+    //     t.ok(test === -test2, 'negate next word')
+    //     t.end()
+    // })
 
     // well done you have read all the tests! :)
-    t.test('extending witch custom words', (t) => {
-        let ml = main({
-            words: {
-                beekeeping: 5,
-                //':)': 5 //smiles do not work yet!
-            }
-        })
-        let test = ml.classify('Beekeeping is awesome :)')
-        let test2 = ml.classify('awesome')
-        t.same(test, test2 + 5, 'beekeeping is very awesome')
-        t.end()
-    })
-
+    // t.test('extending witch custom words', (t) => {
+    //     let ml = main({
+    //         words: {
+    //             beekeeping: 5,
+    //             ':)': 5 //smiles do not work yet!
+            // }
+        // })
+        // let test = ml.classify('Beekeeping is awesome :)')
+        // let test2 = ml.classify('awesome')
+        // t.same(test, test2 + 5, 'beekeeping is very awesome')
+        // t.end()
+    // })
+    //
     t.end()
 })
