@@ -34,19 +34,19 @@ module.exports = (opts) => {
 
     if ('en' === opts.lang) {
         return {
-            classify: () => {
-                var dict = _.merge(opts.words, require('./../german.json'))
-                var negate = new RegExp(/^(nein|keine)$/)
+            classify: function() {
+                var dict = _.merge(opts.words, require('./../AFINN-111.json'))
+                var negate = new RegExp(/^(not|don't|dont|no|nope)$/)
                 return classifyEn(dict, negate)
-            }
+            }()
         }
     } else {
         return {
-            classify: () => {
-                var dict = _.merge(opts.words, require('./../AFINN-111.json'))
-                var negate = new RegExp(/^(not|don't|dont|no|nope)$/)
+            classify: function() {
+                var dict = _.merge(opts.words, require('./../german.json'))
+                var negate = new RegExp(/^(nein|keine)$/)
                 return classifyDe(dict, negate)
-            }
+            }()
         }
     }
 }
