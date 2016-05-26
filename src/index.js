@@ -6,11 +6,8 @@ module.exports = (opts) => {
 
     var _ = require('lodash-fp')
 
-    const classifyEn = (str) => {
-        var dict = _.merge(opts.words, require('./../AFINN-111.json'))
-        var negate = new RegExp(/^(not|don't|dont|no|nope)$/)
-
-        return str.toLowerCase()
+    const classifyEn = (dict, negate) => (str) =>
+        str.toLowerCase()
             .split(' ')
             .map(opts.tokenize)
             .reduce((acc, word) => {
@@ -21,13 +18,9 @@ module.exports = (opts) => {
                 }
             }, {sum: 0, prev: ''})
             .sum
-    }
 
-    const classifyDe = (str) => {
-        var dict = _.merge(opts.words, require('./../german.json'))
-        var negate = new RegExp(/^(nein|keine)$/)
-
-        return str.toLowerCase()
+    const classifyDe = (dict, negate) => (str) =>
+        str.toLowerCase()
             .split(' ')
             .map(opts.tokenize)
             .reduce((acc, word) => {
@@ -38,11 +31,22 @@ module.exports = (opts) => {
                 }
             }, {sum: 0, prev: ''})
             .sum
-    }
 
     if ('en' === opts.lang) {
-        return {classify: classifyEn}
+        return {
+            classify: () => {
+                var dict = _.merge(opts.words, require('./../german.json'))
+                var negate = new RegExp(/^(nein|keine)$/)
+                return classifyEn(dict, negate)
+            }
+        }
     } else {
-        return {classify: classifyDe}
+        return {
+            classify: () => {
+                var dict = _.merge(opts.words, require('./../AFINN-111.json'))
+                var negate = new RegExp(/^(not|don't|dont|no|nope)$/)
+                return classifyDe(dict, negate)
+            }
+        }
     }
 }
