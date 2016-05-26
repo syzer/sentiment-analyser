@@ -1,6 +1,6 @@
 {
   "name": "ml-sentiment",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Machine learner sentiment classifier, with ability to negate words, with english and german",
   "main": "index.js",
   "scripts": {
