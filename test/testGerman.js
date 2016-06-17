@@ -104,20 +104,19 @@ tap('a set of german tests', (t) => {
     })
 
     // well done you have read all the tests! :)
-    // t.test('extending witch custom words', (t) => {
-    //     let ml = main({
-    //         words: {
-    //             Bienenzucht: 5,
-    //             ':)': 5     // smiles do not work yet!
-    //         },
-    //         lang: 'de'
-    //     })
-    //     let test = ml.classify('Bienenzucht bist toll :)')
-    //     let test2 = ml.classify('toll')
-    //     console.warn(test, test2)
-    //     t.same(test, test2 + 5, 'beekeeping is very awesome')
-    //     t.end()
-    // })
+    t.test('extending witch custom words', (t) => {
+        let ml = main({
+            words: {
+                bienenzucht: 5,
+                ':)': 5     // smiles do not work yet!
+            },
+            lang: 'de'
+        })
+        let test = ml.classify('Bienenzucht bist toll :)')
+        let test2 = ml.classify('toll')
+        t.same(test, test2 + 5, 'Beekeeping is very awesome')
+        t.end()
+    })
 
     t.end()
 })
