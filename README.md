@@ -1,4 +1,6 @@
 [![npm version](https://badge.fury.io/js/ml-sentiment.svg)](https://badge.fury.io/js/ml-sentiment)
+[![build status](http://img.shields.io/travis/syzer/sentiment-analyser.svg?style=flat)](http://travis-ci.org/syzer/sentiment-analyser)
+[![Dependency Status](https://david-dm.org/syzer/sentiment-analyser.svg)](https://david-dm.org/syzer/sentiment-analyser)
 
 # Wat
 
