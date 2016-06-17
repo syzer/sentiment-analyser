@@ -1,6 +1,6 @@
 {
   "name": "ml-sentiment",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Machine learner sentiment classifier, with ability to negate words, with english and german",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,14 @@
   "bugs": {
     "url": "https://github.com/syzer/sentiment-analyser/issues"
   },
+  "keywords": [
+    "machine learning",
+    "sentiment",
+    "analyser",
+    "nlp",
+    "ml",
+    "natural language processing"
+  ],
   "homepage": "https://github.com/syzer/sentiment-analyser#readme",
   "devDependencies": {
     "tap": "^5.7.2"

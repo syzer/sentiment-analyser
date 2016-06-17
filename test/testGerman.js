@@ -18,11 +18,11 @@ tap('a set of german tests', (t) => {
         t.end()
     })
 
-    // t.test('long string', (t) => {
-    //     let test2 = lib.classify('Regnerischen Tag , aber immer noch in einer guten Stimmung')
-    //     t.same(test2, 2, 'is true')
-    //     t.end()
-    // })
+    t.test('long string', (t) => {
+        let test2 = lib.classify('Regnerischen Tag , aber immer noch in einer guten Stimmung')
+        t.same(test2, 2, 'is true')
+        t.end()
+    })
 
     t.test('long string', (t) => {
         let test3 = lib.classify(longSentence)
@@ -57,7 +57,8 @@ tap('a set of german tests', (t) => {
         let lib3 = main({
             words: {
                 gut: 5
-            }
+            },
+            lang: 'de'
         })
         let test5 = lib3.classify('Gut')
 
@@ -65,55 +66,58 @@ tap('a set of german tests', (t) => {
         t.end()
     })
 
-    // t.test('custom tokenizer', (t) => {
-    //     let lib4 = main({
-    //         tokenize: el => (el => el.replace(/\W /g, ''))
-    //     })
-    //     let test = lib4.classify(`It's not great`)
-    //     let test2 = lib4.classify('not great')
-    //
-    //     t.same(test, test2, 'with custom tokenizer')
-    //     t.end()
-    // })
-    //
-    // t.test('performance test', (t) => {
-    //     console.time('40000 requests/core in')
-    //
-    //     _.times(() => lib.classify(longSentence), 40000)
-    //
-    //     console.timeEnd('40000 requests/core in')
-    //     t.end()
-    // })
-    //
-    // t.test('negation of positive words', (t) => {
-    //     let ml = main()
-    //     let test = ml.classify(`not great`)
-    //     let test2 = ml.classify(`great`)
-    //     t.ok(test === -test2, 'negate next word')
-    //     t.end()
-    // })
+    t.test('custom tokenizer', (t) => {
+        let lib4 = main({
+            tokenize: el => (el => el.replace(/\W /g, '')),
+            lang: 'de'
+        })
+        let test = lib4.classify(`Es ist nicht so toll`)
+        let test2 = lib4.classify('so toll')
 
-    // t.test('negation of negative words', (t) => {
-    //     let ml = main()
-    //     let test = ml.classify(`not awesome`)
-    //     let test2 = ml.classify(`awesome`)
-    //     t.ok(test === -test2, 'negate next word')
-    //     t.end()
-    // })
+        t.same(test, test2, 'with custom tokenizer')
+        t.end()
+    })
+
+    t.test('performance test', (t) => {
+        console.time('40000 requests/core in')
+
+        _.times(() => lib.classify(longSentence), 40000)
+
+        console.timeEnd('40000 requests/core in')
+        t.end()
+    })
+
+    t.test('negation of positive words', (t) => {
+        let test = lib.classify(`nicht toll`)
+        let test2 = lib.classify(`toll`)
+        t.ok(test === -test2, 'negate next word')
+        t.ok(test !== 0, 'non zero value')
+        t.end()
+    })
+
+    t.test('negation of negative words', (t) => {
+        let test = lib.classify(`keine panik`)
+        let test2 = lib.classify(`panik`)
+        t.ok(test === -test2, 'negate next word')
+        t.ok(test !== 0, 'non zero value')
+        t.end()
+    })
 
     // well done you have read all the tests! :)
     // t.test('extending witch custom words', (t) => {
     //     let ml = main({
     //         words: {
-    //             beekeeping: 5,
-    //             ':)': 5 //smiles do not work yet!
-            // }
-        // })
-        // let test = ml.classify('Beekeeping is awesome :)')
-        // let test2 = ml.classify('awesome')
-        // t.same(test, test2 + 5, 'beekeeping is very awesome')
-        // t.end()
+    //             Bienenzucht: 5,
+    //             ':)': 5     // smiles do not work yet!
+    //         },
+    //         lang: 'de'
+    //     })
+    //     let test = ml.classify('Bienenzucht bist toll :)')
+    //     let test2 = ml.classify('toll')
+    //     console.warn(test, test2)
+    //     t.same(test, test2 + 5, 'beekeeping is very awesome')
+    //     t.end()
     // })
-    //
+
     t.end()
 })

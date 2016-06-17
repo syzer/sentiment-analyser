@@ -44,7 +44,7 @@ module.exports = (opts) => {
         return {
             classify: function() {
                 var dict = _.merge(opts.words, require('./../german.json'))
-                var negate = new RegExp(/^(nein|keine)$/)
+                var negate = new RegExp(/^(nein|nicht|keine)$/)
                 return classifyDe(dict, negate)
             }()
         }
