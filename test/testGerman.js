@@ -3,23 +3,23 @@
 const tap = require('tap').test
 const main = require('./../src/index.js')
 // js is horrible
-const lib = main({lang: 'en'})
+const lib = main({lang: 'de'})
 const _ = require('lodash-fp')
-const longSentence = `Transform json to csv data. The difference to my other
-module json2csv is json2csv-stream uses streams for transforming the incoming
-data. The module is built with the new streaming API from Node.js v0.10.0 but
-maintains backwards compatibility to earlier Node.js versions. Listen for
-header and line events or pipe the data directly to a readable stream.`
+const longSentence = `Trans json zu CSV-Daten. Der Unterschied zu meinen anderen
+Modul json2csv ist json2csv-Stream verwendet Ströme für die Umwandlung der eingehenden
+Daten. Das Modul mit der neue Streaming API von Node.js v0.10.0 gebaut ist, aber
+unterhält die Abwärtskompatibilität zu früheren Versionen Node.js. Hören Sie
+Ereignisse oder Rohr Kopf- und die Daten direkt in einen lesbaren Stream.`
 
-tap('a set of english tests', (t) => {
+tap('a set of german tests', (t) => {
     t.test('on Good', (t) => {
-        let test = lib.classify('Good')
-        t.same(test, 3, 'is true')
+        let test = lib.classify('Gut')
+        t.same(test, 3, 'good is good :)')
         t.end()
     })
 
     t.test('long string', (t) => {
-        let test2 = lib.classify('Rainy day but still in a good mood')
+        let test2 = lib.classify('Regnerischen Tag , aber immer noch in einer guten Stimmung')
         t.same(test2, 2, 'is true')
         t.end()
     })
@@ -31,8 +31,8 @@ tap('a set of english tests', (t) => {
     })
 
     t.test('with dot.', (t) => {
-        let test4 = lib.classify('Good.')
-        let test5 = lib.classify('Good')
+        let test4 = lib.classify('Gut.')
+        let test5 = lib.classify('Gut')
         t.same(test4, test5, 'dots dont bother us')
         t.end()
     })
@@ -45,9 +45,9 @@ tap('a set of english tests', (t) => {
             }
         })
 
-        let test4 = lib2.classify('Good hyper')
-        let test5 = lib2.classify('Good')
-        let test6 = lib2.classify('Good hipster')
+        let test4 = lib2.classify('Gut hyper')
+        let test5 = lib2.classify('Gut')
+        let test6 = lib2.classify('Gut hipster')
 
         t.ok(test4 > test5 > test6, 'with custom words')
         t.end()
@@ -56,22 +56,23 @@ tap('a set of english tests', (t) => {
     t.test('overwrite points', (t) => {
         let lib3 = main({
             words: {
-                good: 5
-            }
+                gut: 5
+            },
+            lang: 'de'
         })
-        let test5 = lib3.classify('good')
+        let test5 = lib3.classify('Gut')
 
         t.same(test5, 5, 'with good=5')
         t.end()
     })
 
-    //TODO better test
     t.test('custom tokenizer', (t) => {
         let lib4 = main({
-            tokenize: el => (el => el.replace(/\W /g, ''))
+            tokenize: el => (el => el.replace(/\W /g, '')),
+            lang: 'de'
         })
-        let test = lib4.classify(`It's not great`)
-        let test2 = lib4.classify('not great')
+        let test = lib4.classify(`Es ist nicht so toll`)
+        let test2 = lib4.classify('so toll')
 
         t.same(test, test2, 'with custom tokenizer')
         t.end()
@@ -87,18 +88,18 @@ tap('a set of english tests', (t) => {
     })
 
     t.test('negation of positive words', (t) => {
-        let ml = main()
-        let test = ml.classify(`not great`)
-        let test2 = ml.classify(`great`)
+        let test = lib.classify(`nicht toll`)
+        let test2 = lib.classify(`toll`)
         t.ok(test === -test2, 'negate next word')
+        t.ok(test !== 0, 'non zero value')
         t.end()
     })
 
     t.test('negation of negative words', (t) => {
-        let ml = main()
-        let test = ml.classify(`not awesome`)
-        let test2 = ml.classify(`awesome`)
+        let test = lib.classify(`keine panik`)
+        let test2 = lib.classify(`panik`)
         t.ok(test === -test2, 'negate next word')
+        t.ok(test !== 0, 'non zero value')
         t.end()
     })
 
@@ -106,13 +107,14 @@ tap('a set of english tests', (t) => {
     t.test('extending witch custom words', (t) => {
         let ml = main({
             words: {
-                beekeeping: 5,
-                //':)': 5 //smiles do not work yet!
-            }
+                bienenzucht: 5,
+                ':)': 5     // smiles do not work yet!
+            },
+            lang: 'de'
         })
-        let test = ml.classify('Beekeeping is awesome :)')
-        let test2 = ml.classify('awesome')
-        t.same(test, test2 + 5, 'beekeeping is very awesome')
+        let test = ml.classify('Bienenzucht bist toll :)')
+        let test2 = ml.classify('toll')
+        t.same(test, test2 + 5, 'Beekeeping is very awesome')
         t.end()
     })
 
