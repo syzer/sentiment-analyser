@@ -1,6 +1,7 @@
+[![npm version](https://badge.fury.io/js/ml-sentiment.svg)](https://badge.fury.io/js/ml-sentiment)
+
 # Wat
 
-[![npm version](https://badge.fury.io/js/ml-sentiment.svg)](https://badge.fury.io/js/ml-sentiment)
 Simple text sentiment analyser.
 
 
