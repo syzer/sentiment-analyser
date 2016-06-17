@@ -3,6 +3,9 @@
 [![Dependency Status](https://david-dm.org/syzer/sentiment-analyser.svg)](https://david-dm.org/syzer/sentiment-analyser)
 [![devDependency Status](https://david-dm.org/syzer/sentiment-analyser/dev-status.svg)](https://david-dm.org/syzer/sentiment-analyser#info=devDependencies)
 [![Code Coverage](https://img.shields.io/codecov/c/github/syzer/sentiment-analyser/master.svg)](https://codecov.io/github/syzer/sentiment-analyser?branch=master)
+[![Downloads Today](https://img.shields.io/npm/dt/ml-sentiment.svg)](https://badge.fury.io/js/ml-sentiment)
+[![Downloads Month](https://img.shields.io/npm/dm/ml-sentiment.svg)](https://badge.fury.io/js/ml-sentiment)
+
 # Wat
 
 Simple text sentiment analyser.
@@ -10,9 +13,16 @@ Simple text sentiment analyser.
 
 # Install
 
-```js
+```sh
 npm install ml-sentiment
+```
+
+### Usage
+
+```js
 var ml = require('ml-sentiment')
+ml.classify('Rainy day but still in a good mood')
+//=> 2 ... (overall positive sentiment)
 ```
 
 
@@ -41,12 +51,20 @@ ml.classify('Rainy day but still in a good mood')
 #### Negations
 
 ```js
-var ml = require('./index.js')();
-ml.classify(`not awesome`);
+var ml = require('ml-sentiment')()
+ml.classify(`not awesome`)
 //=> -3 (negative)
 
 ml.classify(`awesome`);
 //=> 3 (positive)
+```
+
+#### German
+
+```js
+var ml = require('ml-sentiment')({lang: 'de'})
+ml.classify(`Es ist nicht so toll`)
+//=> (negative)
 ```
 
 # Credits
