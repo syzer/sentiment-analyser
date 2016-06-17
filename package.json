@@ -1,10 +1,11 @@
 {
   "name": "ml-sentiment",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Machine learner sentiment classifier, with ability to negate words, with english and german",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/*.js",
+    "coverage": "./node_modules/.bin/istanbul cover ./test/*.js && cat ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,8 @@
   ],
   "homepage": "https://github.com/syzer/sentiment-analyser#readme",
   "devDependencies": {
-    "tap": "^5.7.2"
+    "tap": "^5.7.2",
+    "istanbul": "^0.4.0"
   },
   "dependencies": {
     "lodash-fp": "^0.10.4"

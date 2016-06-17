@@ -1,7 +1,8 @@
 [![npm version](https://badge.fury.io/js/ml-sentiment.svg)](https://badge.fury.io/js/ml-sentiment)
 [![build status](http://img.shields.io/travis/syzer/sentiment-analyser.svg?style=flat)](http://travis-ci.org/syzer/sentiment-analyser)
 [![Dependency Status](https://david-dm.org/syzer/sentiment-analyser.svg)](https://david-dm.org/syzer/sentiment-analyser)
-
+[![devDependency Status](https://david-dm.org/syzer/sentiment-analyser/dev-status.svg)](https://david-dm.org/syzer/sentiment-analyser#info=devDependencies)
+[![Code Coverage](https://img.shields.io/codecov/c/github/syzer/sentiment-analyser/master.svg)](https://codecov.io/github/syzer/sentiment-analyser?branch=master)
 # Wat
 
 Simple text sentiment analyser.
