@@ -28,7 +28,7 @@
   "homepage": "https://github.com/syzer/sentiment-analyser#readme",
   "devDependencies": {
     "argg": "0.0.2",
-    "codecov.io": "^0.1.6",
+    "codecov.io": "^0.1.7",
     "istanbul": "^0.4.0",
     "tap": "^5.7.2"
   },
