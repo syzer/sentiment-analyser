@@ -55,7 +55,7 @@ var ml = require('ml-sentiment')()
 ml.classify(`not awesome`)
 //=> -3 (negative)
 
-ml.classify(`awesome`);
+ml.classify(`awesome`)
 //=> 3 (positive)
 ```
 
