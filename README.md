@@ -20,8 +20,8 @@ npm install ml-sentiment
 ### Usage
 
 ```js
-var ml = require('ml-sentiment')
-ml.classify('Rainy day but still in a good mood')
+var ml = require('ml-sentiment')();
+ml.classify('Rainy day but still in a good mood');
 //=> 2 ... (overall positive sentiment)
 ```
 
@@ -40,30 +40,30 @@ data. The module is built with the new streaming API from Node.js v0.10.0 but
 maintains backwards compatibility to earlier Node.js versions. Listen for
 header and line events or pipe the data directly to a readable stream.`
 
-var ml = require('ml-sentiment')()
-ml.classify(longSentence)
+var ml = require('ml-sentiment')();
+ml.classify(longSentence);
 //=> 0 ... (very boring encyclopedia like text)
 
-ml.classify('Rainy day but still in a good mood')
+ml.classify('Rainy day but still in a good mood');
 //=> 2 ... (overall positive sentiment)
 ```
 
 #### Negations
 
 ```js
-var ml = require('ml-sentiment')()
-ml.classify(`not awesome`)
+var ml = require('ml-sentiment')();
+ml.classify(`not awesome`);
 //=> -3 (negative)
 
-ml.classify(`awesome`)
+ml.classify(`awesome`);
 //=> 3 (positive)
 ```
 
 #### German
 
 ```js
-var ml = require('ml-sentiment')({lang: 'de'})
-ml.classify(`Es ist nicht so toll`)
+var ml = require('ml-sentiment')({lang: 'de'});
+ml.classify(`Es ist nicht so toll`);
 //=> (negative)
 ```
 
