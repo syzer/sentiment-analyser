@@ -8,6 +8,8 @@
 
 # Wat
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/sentiment-analyser.svg)](https://greenkeeper.io/)
+
 Simple text sentiment analyser.
 
 
